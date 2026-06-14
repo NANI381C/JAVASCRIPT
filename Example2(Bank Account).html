@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function CreateBankAccount(){
+            let balance = 0;
+            return{
+            deposit:function(amount){
+                if(amount<=0){
+                    alert("Invalid amount")
+                }
+                else{
+                balance=balance+amount
+                console.log(`Deposited Amount: ${amount}, NewBalance: ${balance}`);
+                }
+            },
+                withdraw:function(amount){
+                if(amount<=0){
+                    alert("Invalid amount")
+                }
+                else if(amount>balance){
+                    alert("Insufficient Balance")
+                }
+                else{
+                    balance=balance-amount
+                    console.log(`Withdrawn: ${amount}, CurrentBalance: ${balance}`);
+                }
+            }
+        }
+    }
+        let Nagasai=CreateBankAccount()
+        Nagasai.deposit(5000)
+        Nagasai.deposit(1500)
+        Nagasai.withdraw(500)
+        Nagasai.withdraw(1500)
+        //CreateBankAccount() is a closure function that creates a private variable balance and returns an object with two methods deposit and withdraw. The balance variable is not accessible from outside the CreateBankAccount function, but it can be modified and accessed through the deposit and withdraw methods. This allows us to create multiple bank accounts with their own separate balances.
+    </script>
+</body>
+</html>

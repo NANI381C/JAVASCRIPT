@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function outer(){
+            let count = 0;
+            function inner(){
+                count++
+                console.log(count);   
+            }
+            return inner
+        }
+        let a=outer()
+        a()
+        a()
+        a()
+        //Closure is a function that has access to the variables in its outer function's scope, even after the outer function has returned. In this example, the inner function has access to the count variable defined in the outer function, and it can modify and access it even after the outer function has finished executing. Each time we call the inner function, it increments the count variable and logs its value to the console.
+    </script>
+</body>
+</html>
